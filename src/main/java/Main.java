@@ -46,7 +46,10 @@ public class Main {
         thatDay.add(Calendar.DAY_OF_MONTH, day);
         final int hour = randomNum.nextInt(24);
         thatDay.add(Calendar.HOUR_OF_DAY, hour);
-        final int minute = randomNum.nextInt(59);
+        final int randomMinute = randomNum.nextInt(59);
+        thatDay.add(Calendar.MINUTE, randomMinute);
+        final int randomSecond = randomNum.nextInt(59);
+        thatDay.add(Calendar.SECOND, randomSecond);
 
         Calendar today = Calendar.getInstance();
         long diff =  thatDay.getTimeInMillis() - today.getTimeInMillis();
