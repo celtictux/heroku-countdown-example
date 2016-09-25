@@ -37,7 +37,7 @@ public class Main {
     public static String getCountdown() {
 
         Calendar thatDay = Calendar.getInstance();
-        thatDay.setTime(new Date(0)); /* reset */
+        thatDay.setTime(new Date()); /* reset */
 //        thatDay.set(Calendar.DAY_OF_MONTH,1);
 //        thatDay.set(Calendar.MONTH,0); // 0-11 so 1 less
 //        thatDay.set(Calendar.YEAR, 2014);
