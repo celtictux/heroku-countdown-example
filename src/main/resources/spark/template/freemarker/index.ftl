@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <#include "header.ftl">
 </head>
 
 <body>
-
-  <#include "nav.ftl">
 
 <div class="jumbotron text-center">
   <div class="container">
@@ -24,7 +22,7 @@
   </div>
   <hr>
   <div class="row">
-    
+
   </div> <!-- row -->
 </div>
 </body>
