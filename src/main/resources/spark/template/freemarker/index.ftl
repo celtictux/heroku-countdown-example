@@ -11,9 +11,10 @@
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
+      <img src="/logo.png">
     </a>
     <h1>Countdown Timer</h1>
+    <h2>${countdown}</h2>
   </div>
 </div>
 <div class="container">
