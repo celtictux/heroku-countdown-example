@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <#include "header.ftl">
+
 </head>
 
 <body>
@@ -24,15 +24,7 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-java">Deploying Java Apps on Heroku</a></li>
-      </ul>
-    </div>
+    
   </div> <!-- row -->
 </div>
 </body>
