@@ -14,6 +14,7 @@
       <img src="/logo.png">
     </a>
     <h1>Countdown Timer</h1>
+    <h2>Next anticipated Bobism</h2>
     <h2>${countdown}</h2>
   </div>
 </div>

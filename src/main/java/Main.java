@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
+import java.util.stream.IntStream;
 
 import static spark.Spark.get;
 import static spark.SparkBase.port;
@@ -31,42 +32,21 @@ public class Main {
 
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
-
-        get("/db", (req, res) -> {
-            Connection connection = null;
-            Map<String, Object> attributes = new HashMap<>();
-            try {
-                connection = DatabaseUrl.extract().getConnection();
-
-                Statement stmt = connection.createStatement();
-                stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-                stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-                ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-                ArrayList<String> output = new ArrayList<String>();
-                while (rs.next()) {
-                    output.add( "Read from DB: " + rs.getTimestamp("tick"));
-                }
-
-                attributes.put("results", output);
-                return new ModelAndView(attributes, "db.ftl");
-            } catch (Exception e) {
-                attributes.put("message", "There was an error: " + e);
-                return new ModelAndView(attributes, "error.ftl");
-            } finally {
-                if (connection != null) try{connection.close();} catch(SQLException e){}
-            }
-        }, new FreeMarkerEngine());
-
     }
 
     public static String getCountdown() {
 
         Calendar thatDay = Calendar.getInstance();
-        thatDay.setTime(new Date(0)); /* reset */
-        thatDay.set(Calendar.DAY_OF_MONTH,1);
-        thatDay.set(Calendar.MONTH,0); // 0-11 so 1 less
-        thatDay.set(Calendar.YEAR, 2014);
+//        thatDay.setTime(new Date(0)); /* reset */
+//        thatDay.set(Calendar.DAY_OF_MONTH,1);
+//        thatDay.set(Calendar.MONTH,0); // 0-11 so 1 less
+//        thatDay.set(Calendar.YEAR, 2014);
+        final Random randomNum = new Random();
+        final int day = randomNum.nextInt(5);
+        thatDay.add(Calendar.DAY_OF_MONTH, day);
+        final int hour = randomNum.nextInt(24);
+        thatDay.add(Calendar.HOUR_OF_DAY, hour);
+        final int minute = randomNum.nextInt(59);
 
         Calendar today = Calendar.getInstance();
         long diff =  thatDay.getTimeInMillis() - today.getTimeInMillis();
