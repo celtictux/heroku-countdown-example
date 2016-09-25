@@ -19,8 +19,7 @@ public class Main {
 
     public static int SECONDS_IN_A_DAY = 24 * 60 * 60;
     public static void main(String[] args) {
-
-        port(8080);
+        port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
 
         get("/countdown", (req, res) -> getCountdown());
